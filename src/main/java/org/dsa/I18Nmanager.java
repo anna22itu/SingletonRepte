@@ -30,18 +30,20 @@ public class I18Nmanager {
     }
 
     // mètodes No estàtics
-    public String getText(String lenguage, String line){
+    // language = filename 'ca'  & line = key 'l1'
+    public String getText(String language, String line){
 
-        ResourceBundle rb = this.traducciones.get(line);
+        ResourceBundle rb = this.traducciones.get(language);
         if (rb == null){
             logger.warn("Error: no està afegit el fitxer a 'traducciones'");
 
-            rb = ResourceBundle.getBundle("resources." + lenguage + ".properties");
-            traducciones.put(line,rb);
+            rb = ResourceBundle.getBundle(language);
+            traducciones.put(language,rb);
         }
         else{
             logger.info("Good: el fitxer està afegit a 'traducciones'");
         }
+        logger.info("El resultado es: " + rb.getString(line));
         return rb.getString(line);
     }
 
