@@ -18,10 +18,11 @@ public class I18NManagerTest {
 
     }
 
+/**
     @After
     public void tearDown() {
         this.i18n.getInstance().clear();
-    }
+    }*/
 
     @Test
     public void testGetText() throws Exception {
@@ -40,10 +41,10 @@ public class I18NManagerTest {
         Assert.assertEquals("hello", msg4);
 
         String msg5 = I18Nmanager.getInstance().getText("en","l2");
-        Assert.assertEquals("armario", msg5);
+        Assert.assertEquals("aircraft", msg5);
 
         String msg6 = I18Nmanager.getInstance().getText("en","l3");
-        Assert.assertEquals("puerta", msg6);
+        Assert.assertEquals("gate", msg6);
 
         ////
 
@@ -72,14 +73,14 @@ public class I18NManagerTest {
 
     @Test(expected = MissingResourceException.class)
     public void testGetTextBundleNotFound() throws Exception {
-        String msg1 = I18Nmanager.getInstance().getText("ca","l1");
-        Assert.assertEquals("hola", msg1);
 
-        String msg2 = I18Nmanager.getInstance().getText("ca","l2");
-        Assert.assertEquals("adÃ©u", msg2);
+        String msg1 = I18Nmanager.getInstance().getText("al","l1");
+        Assert.assertEquals("hallo", msg1);
 
+        String msg2 = I18Nmanager.getInstance().getText("al","l2");
+        Assert.assertEquals("Flugzeug", msg2);
 
-        String msg3 = I18Nmanager.getInstance().getText("XXXX","l2");
-        Assert.assertEquals("adÃ©u", msg2);
+        String msg3 = I18Nmanager.getInstance().getText("it","l1");
+        Assert.assertEquals("ciao", msg3);
     }
 }

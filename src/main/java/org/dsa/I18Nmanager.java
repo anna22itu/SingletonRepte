@@ -29,6 +29,7 @@ public class I18Nmanager {
         return instance;
     }
 
+
     // mètodes No estàtics
     // language = filename 'ca'  & line = key 'l1'
     public String getText(String language, String line){
@@ -50,4 +51,5 @@ public class I18Nmanager {
     public void clear() {
         instance.clear();
     }
+
 }
